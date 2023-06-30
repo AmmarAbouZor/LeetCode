@@ -36,3 +36,18 @@ pub fn length_of_lis_one_line(nums: Vec<i32>) -> i32 {
         })
         .len() as i32
 }
+
+// DP O(n2)
+// Go Backward and compare each value with the values in front of it
+pub fn length_of_lis_dp(nums: Vec<i32>) -> i32 {
+    let mut lenghts = vec![1; nums.len()];
+    for i in (0..nums.len() - 1).rev() {
+        for j in i + 1..nums.len() {
+            if nums[i] < nums[j] {
+                lenghts[i] = lenghts[i].max(1 + lenghts[j]);
+            }
+        }
+    }
+
+    lenghts.into_iter().max().unwrap()
+}
