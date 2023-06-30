@@ -31,7 +31,8 @@ pub fn count_bits_odd_bit(n: i32) -> Vec<i32> {
     let mut count = vec![0; n];
 
     for i in 1..n {
-        count[i] = if i & 2 == 0 {
+        // is even check
+        count[i] = if i & 0b1 == 0 {
             count[i >> 1]
         } else {
             count[i - 1] + 1

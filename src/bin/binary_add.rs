@@ -17,6 +17,6 @@ pub fn get_sum_rec(a: i32, b: i32) -> i32 {
     if b == 0 {
         a
     } else {
-        get_sum(a ^ b, (a & b) << 1)
+        get_sum_rec(a ^ b, (a & b) << 1)
     }
 }

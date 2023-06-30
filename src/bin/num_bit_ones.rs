@@ -12,7 +12,7 @@ pub fn hamming_weight_man(n: u32) -> i32 {
     let mut res: i32 = 0;
 
     for i in 0..32 {
-        let mask = 1 << i;
+        let mask = 0b1 << i;
         if n & mask != 0 {
             res += 1;
         }
