@@ -12,10 +12,10 @@ pub struct ListNode {
 pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     let (mut prev, mut curr) = (None, head);
 
-    while let Some(mut node) = curr {
-        curr = node.next.take();
-        node.next = prev;
-        prev = Some(node);
+    while let Some(mut temp_node) = curr {
+        curr = temp_node.next.take();
+        temp_node.next = prev;
+        prev = Some(temp_node);
     }
 
     prev
