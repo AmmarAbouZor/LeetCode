@@ -15,6 +15,14 @@ struct Solution;
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
+    // Easiest solution since TreeNode derives Eq
+    pub fn is_same_tree_simple(
+        p: Option<Rc<RefCell<TreeNode>>>,
+        q: Option<Rc<RefCell<TreeNode>>>,
+    ) -> bool {
+        p == q
+    }
+
     // O(n) Time: O(logn)
     pub fn is_same_tree(
         p: Option<Rc<RefCell<TreeNode>>>,
