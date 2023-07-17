@@ -15,7 +15,7 @@ struct Solution;
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    // Time: O(n), Space: O(Logn) Or O(h) depending on the hight
+    // Time: O(n), Space: O(Logn) Or O(h) depending on the height
     pub fn max_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         let mut left_depth = 0;
         let mut right_depth = 0;

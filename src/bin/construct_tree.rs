@@ -23,14 +23,14 @@ impl Solution {
             .map(|(i, &val)| (val, i))
             .collect();
 
-        Self::build_recrusive(
+        Self::build_recursive(
             &mut preorder.iter(),
             &index_map,
             (0, preorder.len() as isize - 1),
         )
     }
 
-    fn build_recrusive(
+    fn build_recursive(
         preorder: &mut std::slice::Iter<i32>,
         index_map: &HashMap<i32, usize>,
         range: (isize, isize),
@@ -40,8 +40,8 @@ impl Solution {
                 if let Some(&i) = index_map.get(&val) {
                     return Some(Rc::new(RefCell::new(TreeNode {
                         val: val,
-                        left: Self::build_recrusive(preorder, index_map, (range.0, i as isize - 1)),
-                        right: Self::build_recrusive(
+                        left: Self::build_recursive(preorder, index_map, (range.0, i as isize - 1)),
+                        right: Self::build_recursive(
                             preorder,
                             index_map,
                             (i as isize + 1, range.1),

@@ -1,5 +1,5 @@
 pub fn main() {
-    println!("Longest Commen Subsequence");
+    println!("Longest Common Subsequence");
 }
 
 // Bottom up O(mn)
