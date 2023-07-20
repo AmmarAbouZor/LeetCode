@@ -17,7 +17,7 @@ pub fn find_min(nums: Vec<i32>) -> i32 {
     }
 }
 
-pub fn find_min_no_rec(mut nums: Vec<i32>) -> i32 {
+pub fn find_min_no_rec(nums: Vec<i32>) -> i32 {
     let mut start = 0;
     let mut end = nums.len() - 1;
 
@@ -31,4 +31,12 @@ pub fn find_min_no_rec(mut nums: Vec<i32>) -> i32 {
     }
 
     nums[start]
+}
+
+pub fn find_min_builtin(nums: Vec<i32>) -> i32 {
+    let split = nums.partition_point(|&x| x >= nums[0]);
+
+    // partition_point return the slice length if every element meets the condition
+    // including if it is empty
+    *nums.get(split).unwrap_or(&nums[0])
 }
