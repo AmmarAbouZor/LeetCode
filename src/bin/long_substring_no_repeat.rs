@@ -24,6 +24,21 @@ pub fn length_of_longest_substring(s: String) -> i32 {
 }
 
 // O(n2)
+pub fn length_of_longest_substring_slow_short(s: String) -> i32 {
+    let mut max = 0;
+
+    for i in 0..s.len() {
+        let mut set = std::collections::HashSet::new();
+
+        let count = s.chars().skip(i).take_while(|&ch| set.insert(ch)).count() as i32;
+
+        max = max.max(count);
+    }
+
+    max
+}
+
+// O(n2)
 pub fn length_of_longest_substring_slow(s: String) -> i32 {
     let mut max = 0;
 
