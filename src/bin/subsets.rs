@@ -4,7 +4,7 @@ pub fn main() {
 
 // Backtracking Time: O(2^n) Space: O(2^n)
 pub fn subsets(nums: Vec<i32>) -> Vec<Vec<i32>> {
-    fn back_track(mut sets: &mut Vec<Vec<i32>>, nums: &[i32], mut index: usize) {
+    fn back_track(sets: &mut Vec<Vec<i32>>, nums: &[i32], mut index: usize) {
         let mut local_sets: Vec<_> = sets
             .iter()
             .cloned()
