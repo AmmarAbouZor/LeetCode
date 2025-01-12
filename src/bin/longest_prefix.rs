@@ -56,3 +56,25 @@ pub fn longest_common_prefix_wrong(strs: Vec<String>) -> String {
         .map(|(bytes, _)| from_utf8(bytes).unwrap().to_string())
         .unwrap_or_else(|| String::default())
 }
+
+// Final solution using iterators the way I'm used to.
+mod final_soltion {
+    pub fn longest_common_prefix(strs: Vec<String>) -> String {
+        if strs.is_empty() {
+            return String::new();
+        }
+
+        let mut longest = strs[0].clone();
+
+        for word in strs.iter().skip(1) {
+            longest = longest
+                .chars()
+                .zip(word.chars())
+                .take_while(|(l, r)| l == r)
+                .map(|(l, _r)| l)
+                .collect();
+        }
+
+        longest
+    }
+}

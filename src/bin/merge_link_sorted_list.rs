@@ -9,7 +9,7 @@ pub struct ListNode {
     pub next: Option<Box<ListNode>>,
 }
 
-// O(n2)
+// Time: O(m + n), Space: O(m + n)
 pub fn merge_two_lists(
     list1: Option<Box<ListNode>>,
     list2: Option<Box<ListNode>>,
