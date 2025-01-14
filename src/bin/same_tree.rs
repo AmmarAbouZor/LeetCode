@@ -23,7 +23,10 @@ impl Solution {
         p == q
     }
 
-    // O(n) Time: O(logn)
+    // Time: O(n) Time
+    // Space: O(h) where h is the hight of the tree:
+    //  - (balanced) => o(log(n)), ** Best case **
+    //  - (unbalanced) => o(n), ** worst case **
     pub fn is_same_tree(
         p: Option<Rc<RefCell<TreeNode>>>,
         q: Option<Rc<RefCell<TreeNode>>>,
